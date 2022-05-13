@@ -1,0 +1,40 @@
+.profile-div {
+    background-color: rgb(49, 49, 56);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#profile-name {
+    margin: 10px;
+}
+
+.profile-text {
+    margin: 10px;
+}
+
+@media only screen and (min-width: 700px) { /* widescreen */
+    
+    .profile-div {
+        justify-content: start;
+        width: clamp(300px, 35vw, 500px);
+    }
+
+    .profile-pic {
+         width: 100%;   
+    }
+}
+
+@media only screen and (max-width: 700px) { /* small screen
+     */
+    
+    .profile-div {
+        width: 100vw;
+        
+    }
+
+    .profile-pic {
+         height: clamp(50px, 100vw, 400px);
+         margin: 0px auto;
+    }
+}

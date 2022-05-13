@@ -1,0 +1,19 @@
+.addjob-div {
+    margin-bottom: 40px;
+    padding: 30px;
+    background-color: gray;
+}
+
+.addjob-plus {
+    width: 100%;
+    text-align: center;
+    background-color: gainsboro;
+    color: white;
+    font-size: 4em;
+    margin: 10px 0px;
+    border-style: none;
+}
+
+.addjob-form {
+    
+}
