@@ -20,7 +20,9 @@ export const AddJob = (props) => {
         //return jobs
         
         var newJob = {id: uuidv4(), title: title, location: location}
-        props.updateJobs(jobs.push(newJob))
+        var updatedJobs = [...jobs, newJob]
+        console.log("[...jobs, newJob]: ", updatedJobs)
+        props.updateJobs(updatedJobs)
     //})
     console.log(jobs)
     jobTitleRef.current.value = null
@@ -31,7 +33,7 @@ export const AddJob = (props) => {
 
   return (
     <div>
-        <h3>Add a new work experience</h3>
+        <h4>Add a new work experience:</h4>
         <label htmlFor="title">Title: </label>
         <input ref={jobTitleRef} type="text" name="title" />
         <br></br>

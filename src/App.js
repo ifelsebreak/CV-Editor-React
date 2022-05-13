@@ -16,7 +16,7 @@ function App() {
 
   /*useEffect(() => {
     const storedJobs = localStorage.getItem(LOCAL_STORAGE_JOBS_KEY)
-    setJobs(storedJobs)
+    if (storedJobs)setJobs(storedJobs)
   }, [])
   
   useEffect(() => {
@@ -28,10 +28,20 @@ function App() {
     setJobs(updatedJobs)
   }
 
+  const deleteJob = (index) => {
+    if (jobs.length === 1) {
+      setJobs([])
+    } else {
+      var updatedJobs = jobs.splice(index, 1)
+      console.log("[App.js] deleteJob() updatedJobs", updatedJobs)
+      setJobs(updatedJobs)
+    }
+  }
+
   return (
     <>
       <Profile profile={profile}/>
-      <JobsList jobs={jobs} updateJobs={updateJobs}/>
+      <JobsList jobs={jobs} updateJobs={updateJobs} deleteJob={deleteJob}/>
     </>
   );
 }
