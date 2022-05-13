@@ -23,7 +23,7 @@ export const JobsList = (props) => {
       <h2>Work Experience</h2>
       {props.jobs.length > 0 ?
         <div>
-          <h3>{props.jobs.length} job position{props.jobs.length > 1 ? "s" : ""} since {props.jobs[0].date[0].slice(6)}</h3>
+          <h3>{props.jobs.length} job position{props.jobs.length > 1 ? "s" : ""} since {props.jobs[0].date[0].slice(-4)}</h3>
           {props.jobs && props.jobs.map((job) => {
             return <ul><JobItem key={job.id} title={job.title} date={job.date} location={job.location} description={job.description} job={job} jobs={props.jobs} deleteJob={deleteJob}/></ul>
           })}

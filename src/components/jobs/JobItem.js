@@ -18,7 +18,8 @@ export const JobItem = (props) => {
     <li>
         <button onClick={() => handleDeleteJob(props.job.id)}>Delete</button>
         {props.title ? <h4>{props.title}</h4> : null}
-        {/*props.date[0] && props.date[1] ? <h5>{props.date[0]} - {props.date[1]}</h5> : null*/}
+        {props.location ? <h5>{props.location}</h5> : null}
+        {props.date[0] && props.date[1] ? <h5>{props.date[0]} - {props.date[1]}</h5> : null}
         {props.description ? <p>{props.description}</p> : null}
     </li>
   )

@@ -25,16 +25,17 @@ function App() {
 
   const updateJobs = (updatedJobs) => {
     console.log("updatedJobs: ", updatedJobs)
-    setJobs(updatedJobs)
+    setJobs(prevJobs => ([...updatedJobs]))
   }
 
   const deleteJob = (index) => {
     if (jobs.length === 1) {
       setJobs([])
     } else {
-      var updatedJobs = jobs.splice(index, 1)
+      var updatedJobs = jobs
+      updatedJobs.splice(index, 1)
       console.log("[App.js] deleteJob() updatedJobs", updatedJobs)
-      setJobs(updatedJobs)
+      setJobs(prevJobs => ([...updatedJobs]))
     }
   }
 
