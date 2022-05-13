@@ -19,13 +19,15 @@ export const AddJob = (props) => {
   console.log("JobsList.js -> AddJobs.js: ", props.updateJobs)
 
   const handleToggleShow = () => {
-    console.log("showAddForm: ", showAddForm)
     setShowAddForm(true)
+    props.toggleAddButton()
+    console.log("showAddForm: ", showAddForm)
   }
 
   const handleDiscardForm = () => {
-    console.log("showAddForm: ", showAddForm)
     setShowAddForm(false)
+    props.toggleAddButton()
+    console.log("showAddForm: ", showAddForm)
   }
 
   const addJobHandler = (e) => {
@@ -50,7 +52,7 @@ export const AddJob = (props) => {
 
   return (
     <div className="addjob-div">
-        {!showAddForm ? <button onClick={handleToggleShow} className="addjob-plus">+</button> : null}
+        {props.showAddButton ? <button onClick={handleToggleShow} className="addjob-plus">+</button> : null}
         {showAddForm ?
           <div className="addjob-form">
             <label htmlFor="title">Title: </label>

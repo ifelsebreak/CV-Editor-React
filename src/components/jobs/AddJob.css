@@ -1,13 +1,11 @@
 .addjob-div {
-    margin-bottom: 40px;
-    padding: 30px;
-    background-color: gray;
+    background-color: lightgray;
 }
 
 .addjob-plus {
     width: 100%;
     text-align: center;
-    background-color: gainsboro;
+    background-color: rgb(160, 160, 160);
     color: white;
     font-size: 4em;
     margin: 10px 0px;

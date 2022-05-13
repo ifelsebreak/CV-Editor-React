@@ -1,16 +1,33 @@
+a:link {
+    text-decoration: none;
+}
 .profile-div {
-    background-color: rgb(49, 49, 56);
+    background-color: rgb(45, 54, 63);
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 #profile-name {
-    margin: 10px;
+    margin-left: 30px;
+    color: white;
+}
+
+.profile-divider {
+    background-color: white;
+    height: 2px;
+    width: 90%;
+    margin: auto;
 }
 
 .profile-text {
-    margin: 10px;
+    margin-left: 30px;
+    color: white;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    
 }
 
 @media only screen and (min-width: 700px) { /* widescreen */
@@ -21,7 +38,8 @@
     }
 
     .profile-pic {
-         width: 100%;   
+         width: 90%;
+         margin: auto;
     }
 }
 
@@ -34,7 +52,7 @@
     }
 
     .profile-pic {
-         height: clamp(50px, 100vw, 400px);
+         height: clamp(50px, 90vw, 400px);
          margin: 0px auto;
     }
 }

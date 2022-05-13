@@ -4,8 +4,10 @@ import './Profile.css'
 export const Profile = (props) => {
   return (
     <div className="profile-div">
-        <h2 id="profile-name">{props.profile.name} {props.profile.surname}</h2>
         <img className="profile-pic" src="http://thispersondoesnotexist.com/image"></img>
+        <h2 id="profile-name">{props.profile.name} {props.profile.surname}</h2>
+        <h3 className="profile-text">{props.profile.title}</h3>
+        <div className="profile-divider"></div>
         <h3 className="profile-text">{props.profile.location}</h3>
         <h3 className="profile-text">{props.profile.birthdate}</h3>
         <h3 className="profile-text">{props.profile.email}</h3>
