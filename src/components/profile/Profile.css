@@ -1,8 +1,8 @@
-a:link {
+a {
     text-decoration: none;
 }
-.profile-div {
-    background-color: rgb(45, 54, 63);
+#profile-div {
+    background-color: rgb(38, 59, 68);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,48 +11,79 @@ a:link {
 #profile-name {
     margin-left: 30px;
     color: white;
+    font-size: clamp(1em, 7vw, 2em);
 }
 
 .profile-divider {
     background-color: white;
     height: 2px;
     width: 90%;
-    margin: auto;
+    margin: 10px auto;
 }
 
 .profile-text {
-    margin-left: 30px;
+    margin: 5px 0px 5px 30px;
     color: white;
+    font-size: clamp(0.8em, 5vw, 1.2em);
+    font-weight: 400;
 }
 
-.profile-pic {
+#profile-pic {
     border-radius: 50%;
     
 }
 
 @media only screen and (min-width: 700px) { /* widescreen */
+
     
-    .profile-div {
+    
+    #profile-div {
         justify-content: start;
-        width: clamp(300px, 35vw, 500px);
+        height: 100vh;
+        width: clamp(600px, 39vw, 700px);
     }
 
-    .profile-pic {
+    #profile-header {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #profile-pic {
          width: 90%;
-         margin: auto;
+         margin: 10px;
+         align-self: center;
     }
 }
 
-@media only screen and (max-width: 700px) { /* small screen
-     */
+@media only screen and (max-width: 700px) { /* small screen */
+
+    #profile-header {
+        margin: 20px 0px 0px 0px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: wrap;
+
+    }
     
-    .profile-div {
+    #profile-div {
         width: 100vw;
-        
+        margin: 0px;
     }
 
-    .profile-pic {
-         height: clamp(50px, 90vw, 400px);
-         margin: 0px auto;
+    #profile-pic {
+         width: clamp(50px, 45vw, 400px);
+         margin: 10px;
+         flex-grow: 2;
+    }
+
+    #profile-name {
+        margin-left: 0px;
+        color: white;
+        font-size: clamp(1em, 6vw, 1.8em);
+    }
+    
+    #profile-title {
+        margin: 0px;
     }
 }

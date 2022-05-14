@@ -1,0 +1,11 @@
+#jobitem-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0px 10px;
+    margin: 0px;
+}
+
+.jobitem-text{
+    
+}

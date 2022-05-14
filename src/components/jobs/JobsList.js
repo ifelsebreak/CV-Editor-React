@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import './JobsList.css'
 import { JobItem } from './JobItem'
 import { AddJob } from './AddJob'
@@ -9,11 +9,22 @@ export const JobsList = (props) => {
   const [showDiscardButton, setShowDiscardButton] = useState(false)
   const [showAddButton, setShowAddButton] = useState(false)
 
+  const editButtonRef = useRef()
+
   const toggleAddButton = () => {
     setShowAddButton(prevShowAddButton => !prevShowAddButton)
   }
 
+  const showEditButton = (e) => {
+    if (!showEditJobs) editButtonRef.current.style.display = "flex";
+  }
+
+  const hideEditButton = (e) => {
+    editButtonRef.current.style.display = "none";
+  }
+
   const handleEditJobs = () => {
+    hideEditButton()
     setShowEditJobs(true)
     setShowAddButton(true)
     setShowDiscardButton(true)
@@ -39,20 +50,20 @@ export const JobsList = (props) => {
   }
 
   return (
-    <div className="jobslist-div">
-      <h2 className="jobslist-title"> Work Experience</h2>
-      <button onClick={handleEditJobs}>Edit</button>
-      {showDiscardButton ? <button onClick={handleDiscardEditJobs}>Discard</button> : null}
+    <div className="jobslist-div" onMouseEnter={showEditButton} onMouseLeave={hideEditButton}>
+      <div className="jobslist-header"><h2 className="jobslist-title"> Work Experience</h2>
+      <button id="edit-jobs" ref={editButtonRef} onClick={handleEditJobs}>Edit</button>
+      {showDiscardButton ? <button onClick={handleDiscardEditJobs}>Discard</button> : null}</div>
       {props.jobs.length > 0 ?
         <div>
           <h3 className="jobslist-text">{props.jobs.length} job position{props.jobs.length > 1 ? "s" : ""} since {props.jobs[0].date[0].slice(-4)}</h3>
           {props.jobs && props.jobs.map((job) => {
-            return <ul><JobItem key={job.id} title={job.title} date={job.date} location={job.location} description={job.description} job={job} jobs={props.jobs} deleteJob={deleteJob} showEditJobs={showEditJobs}/></ul>
+            return <ul><JobItem key={job.id} job={job} jobs={props.jobs} deleteJob={deleteJob} showEditJobs={showEditJobs}/></ul>
           })}
         </div> 
         : <p>No work experiences</p>
       }
-      <AddJob jobs={props.jobs} updateJobs={updateJobs} showAddButton={showAddButton} toggleAddButton={toggleAddButton} />
+      <AddJob jobs={props.jobs} updateJobs={updateJobs} showAddButton={showAddButton} toggleAddButton={toggleAddButton} showEditJobs={showEditJobs}/>
     </div>
     )
 }

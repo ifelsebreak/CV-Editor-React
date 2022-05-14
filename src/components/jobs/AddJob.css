@@ -1,5 +1,6 @@
 .addjob-div {
     background-color: lightgray;
+    
 }
 
 .addjob-plus {
@@ -13,5 +14,20 @@
 }
 
 .addjob-form {
-    
+    opacity: 0;
+    height: 0%;
+}
+
+.addjob-form[animation="1"] {
+    animation: fade-in 3s both;
+}
+
+.addjob-form[animation="0"] {
+    animation: fade-in 3s reverse;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; height: 0px;}
+    30% { opacity: 0; height: 160px;}
+    100% { opacity: 1; height: 100%;}
 }

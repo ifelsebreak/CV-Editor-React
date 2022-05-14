@@ -1,4 +1,5 @@
 import React from 'react'
+import './JobItem.css'
 
 export const JobItem = (props) => {
 
@@ -20,12 +21,15 @@ export const JobItem = (props) => {
 
   return (
     <li>
-        {props.title ? <h4>{props.title}</h4> : null}
+      <div id="jobitem-header">
+        {props.job.title ? <h4 className="addjob-text">{props.job.title}</h4> : null}
         {props.showEditJobs ? <button onClick={() => handleEditJob(props.job.id)}>Edit</button> : null}
         {props.showEditJobs ? <button onClick={() => handleDeleteJob(props.job.id)}>Delete</button> : null}
-        {props.location ? <h5>{props.location}</h5> : null}
-        {props.date[0] && props.date[1] ? <h5>{props.date[0]} - {props.date[1]}</h5> : null}
-        {props.description ? <p>{props.description}</p> : null}
+      </div>
+        {props.job.company ? <h5 className="addjob-text">{props.job.company}</h5> : null}
+        {props.job.location ? <h5 className="addjob-text">{props.job.location}</h5> : null}
+        {props.job.date[0] && props.job.date[1] ? <h5 className="addjob-text">{props.job.date[0]} - {props.job.date[1]}</h5> : null}
+        {props.job.description ? <p className="addjob-text">{props.job.description}</p> : null}
     </li>
   )
 }
