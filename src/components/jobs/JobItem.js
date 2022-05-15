@@ -1,9 +1,12 @@
 import React from 'react'
 import './JobItem.css'
+import { useSelector } from 'react-redux'
 
 export const JobItem = (props) => {
 
   //console.log("props.job: ", props.job)
+
+  const jobs = useSelector(state => state.jobs)
 
   const handleDeleteJob = (id) => {
     console.log("Lancio handleDeleteJob")

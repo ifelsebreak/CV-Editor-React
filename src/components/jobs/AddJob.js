@@ -1,4 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { add } from '../../state/actions';
 import './AddJob.css'
 import {v4 as uuidv4} from 'uuid'
 import DatePicker, { registerLocale, setDefaultLocale } from "react-datepicker";
@@ -8,9 +10,12 @@ registerLocale('it', it)
 
 export const AddJob = (props) => {
 
+  const dispatch = useDispatch()
+  const jobs = useSelector(state => state.jobs)
+
   const [startdate, setStartdate] = useState(new Date());
   const [enddate, setEnddate] = useState(new Date());
-  const [jobs, setJobs] = useState([...props.jobs])
+  //const [jobs, setJobs] = useState([...props.jobs])
   const [showAddForm, setShowAddForm] = useState(false)
   const [fadeInAnimation, setFadeInAnimation] = useState(0)
 
@@ -47,7 +52,7 @@ export const AddJob = (props) => {
   }
 
   const addJobHandler = (e) => {
-    const title = jobTitleRef.current.value
+    /*const title = jobTitleRef.current.value
     const company = jobCompanyRef.current.value
     const location = jobLocationRef.current.value
     const description = jobDescriptionRef.current.value
@@ -57,8 +62,7 @@ export const AddJob = (props) => {
     var newJob = {id: uuidv4(), title: title, company: company, location: location, date: [startdate.toLocaleString().split(' ')[0].slice(0, -1), enddate.toLocaleString().split(' ')[0].slice(0, -1)], description: description}
     var updatedJobs = [...props.jobs, newJob]
     updatedJobs = updatedJobs.sort(function(a,b){
-      // Turn your strings into dates, and then subtract them
-      // to get a value that is either negative, positive, or zero.
+      
       console.log("Data? ", new Date(b.date[1]))
       return new Date(b.date[1]) - new Date(a.date[0]);
     });
@@ -68,14 +72,14 @@ export const AddJob = (props) => {
     jobTitleRef.current.value = null
     //jobStartdateRef.current.value = null
     jobLocationRef.current.value = null
-    handleDiscardForm();
+    handleDiscardForm();*/
 
   }
 
   return (
     <div className="addjob-div">
         {props.showAddButton && props.showEditJobs && !showAddForm ? <button onClick={handleToggleShow} className="addjob-plus">+</button> : null}
-        {showAddForm && props.showEditJobs?
+        {showAddForm && props.showEditJobs ?
           <div className="addjob-form" animation={fadeInAnimation} /*style={{
               opacity: !showAddForm ? "0" : "1",
               transition: "all 3s",
@@ -109,7 +113,7 @@ export const AddJob = (props) => {
             <input ref={jobDescriptionRef} type="text" name="description" placeholder="Description" />
             <br></br>
 
-            <button onClick={addJobHandler}>Add work experience</button>
+            <button onClick={() => dispatch(add())}>Add work experience</button>
             <button onClick={handleDiscardForm}>Cancel</button>
           </div>
         : null}
